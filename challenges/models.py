@@ -6,12 +6,12 @@ class Challenge(models.Model):
     month = models.CharField(max_length=10,null=False)
     challenge = models.CharField(max_length=25,null=False)
     is_active = models.BooleanField(default=False)
-    months_challenge = models.SlugField(max_length = 20,editable=False,blank=True,default="")
+    months_challenge = models.SlugField(max_length = 20,default="",editable=True,null=True)
     managed = True
     
 
     def save(self,*args, **kwargs):
-        self.months_challenge = slugify(self.month+" challenge")
+        self.months_challenge = slugify(self.month)
         super().save(*args,**kwargs)
 
     def __str__(self) -> str:
