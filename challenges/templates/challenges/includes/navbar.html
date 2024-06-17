@@ -1,0 +1,9 @@
+{% load  static %}
+<header>
+    {% block css_styles %} 
+    <link rel="stylesheet" href="{% static "challenges/includes/header.css" %}">
+    {% endblock %}
+    <nav>
+        <a href="{% url "index" %}">Go to all challenges</a>
+    </nav>
+</header>
